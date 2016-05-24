@@ -1,0 +1,32 @@
+# Header
+menu:
+  Home: /
+  Archives: /archives
+rss: /atom.xml
+
+# Content
+excerpt_link: 继续阅读
+fancybox: true
+
+social:
+  github: http://github.com/doooonooob
+  weixin:
+  weibo:
+  codepen:
+
+# Sidebar
+sidebar: right
+widgets:
+- category
+- tag
+- tagcloud
+- archive
+- recent_posts
+
+# Miscellaneous
+google_analytics: UA-76698232-1
+favicon: /favicon.png
+twitter:
+google_plus:
+fb_admins:
+fb_app_id:

@@ -1,0 +1,40 @@
+<header class="panel">
+    <div class="panelMain">
+        <div class="panelMainInner">
+            <div class="panelTitle">
+                <img src="https://static.doooonoooob.com/2016/04/0EFcFnegGwAx.jpg" alt="My Profile Photo" class="userImg">
+                <h1><a href="<%- url_for() %>"><%= config.title %></a></h1>
+                <hr class="panelDivider">
+                <% if (config.subtitle){ %>
+
+                <p><%= config.subtitle %></p>
+
+                <% } %>
+                <hr class="panelDivider panelDivider2">
+            </div>
+            <div class="panelNavigation">
+            <span class="navigationPrimary">
+                <nav class="clearFix">
+                    <ul>
+                        <li><a href="/#blog" class="blogBtn">blog</a></li>
+                    </ul>
+
+                </nav>
+            </span>
+            <span class="navigationSocial">
+                <nav class=" clearfix">
+                <ul>
+                    <% for (var i in theme.social){ %>
+                    <li><a href="<%- url_for(theme.social[i]) %>"><i class="fa fa-<%= i %>" ></i><span class="label"><%= i %></span></a></li>
+
+
+
+                    <% } %>
+                    <li><a href="<%- theme.rss %>"><i class="fa fa-rss"></i><span class="label">rss</span></a></li>
+                </ul></nav>
+            </span>
+            </div>
+        </div>
+    </div>
+</header>
+

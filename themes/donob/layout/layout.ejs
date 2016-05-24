@@ -1,0 +1,21 @@
+<%- partial('_partial/head') %>
+<body>
+
+<%- partial('_partial/header', null, {cache: !config.relative_link}) %>
+<div class="contentWrapper">
+    <div class="contentWrapperInner">
+        <div class="postList">
+
+            <%- body %>
+
+        </div>
+
+
+        <%- partial('_partial/footer', null, {cache: !config.relative_link}) %>
+
+
+
+    <%- partial('_partial/after-footer') %></div>
+</div>
+</body>
+</html>

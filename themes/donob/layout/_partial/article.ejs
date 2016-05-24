@@ -1,0 +1,43 @@
+<article class="postArticle" id="<%= post.layout %>-<%= post.slug %>">
+    <%- partial('post/title', {class_name: 'postTitle'}) %>
+      <!--<h2 class="postTitle"><a href="#">Welcome to Jekyll!</a></h2>-->
+      <div class="postMeta">
+        <time class="postMetaDate" datetime=""><%- partial('post/date', {class_name: 'article-date', date_format: null}) %></time>
+        •
+        <span class="postMetaTag">on <a href="#"><%- partial('post/tag') %></a></span> •  <span class="postMetaComNum"><a
+                  href="#comment">0条评论</a></span>
+      </div>
+      <!--<p class="excerpt">-->
+    <div class="entryContent" itemprop="articleBody">
+        <% if (post.excerpt && index){ %>
+        <%- post.excerpt %>
+        <% if (theme.excerpt_link){ %>
+        <p class="article-more-link">
+            <a href="<%- url_for(post.path) %>"><%= theme.excerpt_link %></a>
+        </p>
+        <% } %>
+        <% } else { %>
+        <%- post.content %>
+        <% } %>
+
+    <% if (!index){ %>
+    <footer class="articleFooter">
+        <p>本文链接: <a href="<%- post.permalink %>"><%- post.permalink %></a></p>
+        <% if (post.comments && config.disqus_shortname){ %>
+        <a href="<%- post.permalink %>#disqus_thread" class="article-comment-link">Comments</a>
+        <% } %>
+        <%- partial('post/tag') %>
+    </footer>
+
+    <% } %>
+    </div>
+    <hr class="postListDivider">
+</article>
+
+<% if (!index && post.comments && config.disqus_shortname){ %>
+<section id="comments">
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+</section>
+<% } %>
