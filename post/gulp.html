@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>gulp基本使用 | doooonoooob</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="简介gulp ，前端自动化工具，可以帮助我们处理一些琐碎的杂事（其实也很重要的）。
+比如，压缩js，压缩css，编译less，压缩图片
+gulp也是基于node的工具，使用gulp之前，需要安装node。
+安装使用安装gulp
+//全局安装gulp是为了执行gulp任务，本地安装gulp则是为了调用gulp插件的功能    
+node install -g gulp
+node install gu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="gulp基本使用">
+<meta property="og:url" content="https://doooonoooob.com/post/gulp.html">
+<meta property="og:site_name" content="doooonoooob">
+<meta property="og:description" content="简介gulp ，前端自动化工具，可以帮助我们处理一些琐碎的杂事（其实也很重要的）。
+比如，压缩js，压缩css，编译less，压缩图片
+gulp也是基于node的工具，使用gulp之前，需要安装node。
+安装使用安装gulp
+//全局安装gulp是为了执行gulp任务，本地安装gulp则是为了调用gulp插件的功能    
+node install -g gulp
+node install gu">
+<meta property="og:image" content="https://static.doooonoooob.com/2016/05/rIqO1zcMEVXb.png">
+<meta property="og:image" content="https://static.doooonoooob.com/2016/05/QoS4LcJTTSy6.png">
+<meta property="og:image" content="https://static.doooonoooob.com/2016/05/A4lPKOyubDRt.png">
+<meta property="og:updated_time" content="2016-05-24T17:41:47.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="gulp基本使用">
+<meta name="twitter:description" content="简介gulp ，前端自动化工具，可以帮助我们处理一些琐碎的杂事（其实也很重要的）。
+比如，压缩js，压缩css，编译less，压缩图片
+gulp也是基于node的工具，使用gulp之前，需要安装node。
+安装使用安装gulp
+//全局安装gulp是为了执行gulp任务，本地安装gulp则是为了调用gulp插件的功能    
+node install -g gulp
+node install gu">
+<meta name="twitter:image" content="https://static.doooonoooob.com/2016/05/rIqO1zcMEVXb.png">
+  
+    <link rel="alternative" href="/atom.xml" title="doooonoooob" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/main.css">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-76698232-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+</head>
+<body>
+
+<header class="panel">
+    <div class="panelMain">
+        <div class="panelMainInner">
+            <div class="panelTitle">
+                <img src="https://static.doooonoooob.com/2016/04/0EFcFnegGwAx.jpg" alt="My Profile Photo" class="userImg">
+                <h1><a href="/">doooonoooob</a></h1>
+                <hr class="panelDivider">
+                
+                <hr class="panelDivider panelDivider2">
+            </div>
+            <div class="panelNavigation">
+            <span class="navigationPrimary">
+                <nav class="clearFix">
+                    <ul>
+                        <li><a href="/#blog" class="blogBtn">blog</a></li>
+                    </ul>
+
+                </nav>
+            </span>
+            <span class="navigationSocial">
+                <nav class=" clearfix">
+                <ul>
+                    
+                    <li><a href="http://github.com/doooonooob"><i class="fa fa-github" ></i><span class="label">github</span></a></li>
+
+
+
+                    
+                    <li><a href="/"><i class="fa fa-weixin" ></i><span class="label">weixin</span></a></li>
+
+
+
+                    
+                    <li><a href="/"><i class="fa fa-weibo" ></i><span class="label">weibo</span></a></li>
+
+
+
+                    
+                    <li><a href="/"><i class="fa fa-codepen" ></i><span class="label">codepen</span></a></li>
+
+
+
+                    
+                    <li><a href="/atom.xml"><i class="fa fa-rss"></i><span class="label">rss</span></a></li>
+                </ul></nav>
+            </span>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<div class="contentWrapper">
+    <div class="contentWrapperInner">
+        <div class="postList">
+
+            <article class="postArticle" id="post-gulp">
+    
+  
+    <h1  itemprop="name">
+      <a class="postTitle" >gulp基本使用</a>
+    </h1>
+  
+
+      <!--<h2 class="postTitle"><a href="#">Welcome to Jekyll!</a></h2>-->
+      <div class="postMeta">
+        <time class="postMetaDate" datetime=""><a href="/post/gulp.html" class="article-date">
+  <time datetime="2016-05-03T17:50:34.000Z" itemprop="datePublished">2016-05-04</time>
+</a></time>
+        •
+        <span class="postMetaTag">on <a href="#"></a></span> •  <span class="postMetaComNum"><a
+                  href="#comment">0条评论</a></span>
+      </div>
+      <!--<p class="excerpt">-->
+    <div class="entryContent" itemprop="articleBody">
+        
+        <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>gulp ，前端自动化工具，可以帮助我们处理一些琐碎的杂事（其实也很重要的）。</p>
+<p>比如，压缩js，压缩css，编译less，压缩图片</p>
+<p>gulp也是基于node的工具，使用gulp之前，需要安装node。</p>
+<h3 id="安装使用"><a href="#安装使用" class="headerlink" title="安装使用"></a>安装使用</h3><p>安装gulp</p>
+<pre><code>//全局安装gulp是为了执行gulp任务，本地安装gulp则是为了调用gulp插件的功能    
+node install -g gulp
+node install gulp
+</code></pre><h3 id="编写task"><a href="#编写task" class="headerlink" title="编写task"></a>编写task</h3><p>创建gulpfile.js（文件名固定，不可使用其他文件名），<br>编写这个文件</p>
+<pre><code>//引入gulp
+var gulp = require(&apos;gulp&apos;);
+
+//引入javascript压缩模块
+var uglify＝ require(&apos;gulp-uglify&apos;);
+
+//创建任务
+gulp.task(&apos;myscript&apos;, function() {
+//将要压缩的js文件
+gulp.src(&apos;script/*.js&apos;);
+//uglify()调用压缩方法，压缩js
+    .pipe(uglify());
+    //压缩后文件保存的路径，如当前目录下的newscript中
+    .pipe(gulp.dest(&apos;newScript&apos;));
+});
+</code></pre><p>运行上述代码，即执行代码中的刚刚编写的任务。</p>
+<p><img src="https://static.doooonoooob.com/2016/05/rIqO1zcMEVXb.png" alt=""></p>
+<pre><code>//引入gulp
+var gulp = require(&apos;gulp&apos;);
+//引入gulp-uglify模块，用于压缩JS
+var uglify = require(&apos;gulp-uglify&apos;);
+//引入clean-css模块压缩css
+var clean_css = require(&apos;gulp-clean-css&apos;);
+//引入gulp-watch－path
+var watchPath = require(&apos;gulp-watch-path&apos;);
+//引入rename 重命名压缩后的文件
+var rename = require(&apos;gulp-rename&apos;);
+
+//&apos;firstScript&apos;为自定义的任务名，匿名函数为&apos;firstScript&apos;具体任务
+gulp.task(&apos;firstScript&apos;, function() {
+    // &apos;script/*.js&apos;是即将压缩的js文件
+    gulp.src(&apos;script/*.js&apos;)
+        //uglify()是调用的压缩方法，去压缩js
+        .pipe(uglify())
+        //gulp.dest是将压缩后的文件另存为哪的方法，如存到newScript文件夹中
+        .pipe(gulp.dest(&apos;newScript&apos;));
+});
+
+
+//压缩css文件
+gulp.task(&apos;firstStyle&apos;, function() {
+    gulp.src(&apos;style/*.css&apos;)
+        .pipe(clean_css())
+        .pipe(gulp.dest(&apos;newStyle&apos;));
+
+});
+
+
+/*
+gulp.task(&apos;auto&apos;, function() {
+//监听js文件，如果文件有改动执行firstscript任务
+    gulp.watch(&apos;script/*.js&apos;, [&apos;firstScript&apos;]);
+});
+*/
+gulp.task(&apos;auto&apos;, function() {
+    gulp.watch(&apos;script/*.js&apos;, function(event) {
+        var paths = watchPath(event, &apos;script&apos;, &apos;newScript&apos;);
+        gulp.src(paths.srcPath)
+            .pipe(uglify())
+            .pipe(rename({ suffix: &apos;.min&apos; }))
+            .pipe(gulp.dest(paths.distDir));
+    });
+});
+// 将需要执行的任务，添加到default任务中，如添加‘auto’任务
+gulp.task(&apos;default&apos;, [&apos;auto&apos;]);
+</code></pre><p><img src="https://static.doooonoooob.com/2016/05/QoS4LcJTTSy6.png" alt=""></p>
+<p>参考文章中使用的<code>gulp-minify-css</code>，我使用的是<code>gulp-clean-css</code>，貌似install <code>gulp-minify-css</code>时候会报一个错，所以…😄hah<br><img src="https://static.doooonoooob.com/2016/05/A4lPKOyubDRt.png" alt=""></p>
+<h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h3><p>1.<a href="http://www.cnblogs.com/giggle/p/5389188.html" target="_blank" rel="external">细说gulp</a></p>
+
+        
+
+    
+    <footer class="articleFooter">
+        <p>本文链接: <a href="https://doooonoooob.com/post/gulp.html">https://doooonoooob.com/post/gulp.html</a></p>
+        
+        
+    </footer>
+
+    
+    </div>
+    <hr class="postListDivider">
+</article>
+
+
+
+        </div>
+
+
+        
+<footer id="footer" class="inner">
+  &copy; 2016 doooonoooob
+  <br>
+  Powered by <a href="http://hexo.io/" target="_blank" rel="nofollow">Hexo</a>
+</footer>
+
+
+
+    
+
+<script src="//cdn.bootcss.com/jquery/1.12.0/jquery.min.js"></script>
+
+<script src="/js/script.js"></script>
+</div>
+</div>
+</body>
+</html>
