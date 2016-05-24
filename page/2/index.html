@@ -8,7 +8,7 @@
   <meta name="description">
 <meta property="og:type" content="website">
 <meta property="og:title" content="doooonoooob">
-<meta property="og:url" content="https://doooonoooob.com/index.html">
+<meta property="og:url" content="https://doooonoooob.com/page/2/index.html">
 <meta property="og:site_name" content="doooonoooob">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
@@ -98,18 +98,18 @@ ga('send', 'pageview');
 
             
   
-    <article class="postArticle" id="post-gulp">
+    <article class="postArticle" id="post-reg-exp">
     
   
     <h1 itemprop="name">
-      <a class="postTitle" href="/post/gulp.html">gulp基本使用</a>
+      <a class="postTitle" href="/post/reg-exp.html">reg-exp</a>
     </h1>
   
 
       <!--<h2 class="postTitle"><a href="#">Welcome to Jekyll!</a></h2>-->
       <div class="postMeta">
-        <time class="postMetaDate" datetime=""><a href="/post/gulp.html" class="article-date">
-  <time datetime="2016-05-03T17:50:34.000Z" itemprop="datePublished">2016-05-04</time>
+        <time class="postMetaDate" datetime=""><a href="/post/reg-exp.html" class="article-date">
+  <time datetime="2016-04-24T07:46:49.000Z" itemprop="datePublished">2016-04-24</time>
 </a></time>
         •
         <span class="postMetaTag">on <a href="#"></a></span> •  <span class="postMetaComNum"><a
@@ -118,83 +118,7 @@ ga('send', 'pageview');
       <!--<p class="excerpt">-->
     <div class="entryContent" itemprop="articleBody">
         
-        <h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>gulp ，前端自动化工具，可以帮助我们处理一些琐碎的杂事（其实也很重要的）。</p>
-<p>比如，压缩js，压缩css，编译less，压缩图片</p>
-<p>gulp也是基于node的工具，使用gulp之前，需要安装node。</p>
-<h3 id="安装使用"><a href="#安装使用" class="headerlink" title="安装使用"></a>安装使用</h3><p>安装gulp</p>
-<pre><code>//全局安装gulp是为了执行gulp任务，本地安装gulp则是为了调用gulp插件的功能    
-node install -g gulp
-node install gulp
-</code></pre><h3 id="编写task"><a href="#编写task" class="headerlink" title="编写task"></a>编写task</h3><p>创建gulpfile.js（文件名固定，不可使用其他文件名），<br>编写这个文件</p>
-<pre><code>//引入gulp
-var gulp = require(&apos;gulp&apos;);
-
-//引入javascript压缩模块
-var uglify＝ require(&apos;gulp-uglify&apos;);
-
-//创建任务
-gulp.task(&apos;myscript&apos;, function() {
-//将要压缩的js文件
-gulp.src(&apos;script/*.js&apos;);
-//uglify()调用压缩方法，压缩js
-    .pipe(uglify());
-    //压缩后文件保存的路径，如当前目录下的newscript中
-    .pipe(gulp.dest(&apos;newScript&apos;));
-});
-</code></pre><p>运行上述代码，即执行代码中的刚刚编写的任务。</p>
-<p><img src="https://static.doooonoooob.com/2016/05/rIqO1zcMEVXb.png" alt=""></p>
-<pre><code>//引入gulp
-var gulp = require(&apos;gulp&apos;);
-//引入gulp-uglify模块，用于压缩JS
-var uglify = require(&apos;gulp-uglify&apos;);
-//引入clean-css模块压缩css
-var clean_css = require(&apos;gulp-clean-css&apos;);
-//引入gulp-watch－path
-var watchPath = require(&apos;gulp-watch-path&apos;);
-//引入rename 重命名压缩后的文件
-var rename = require(&apos;gulp-rename&apos;);
-
-//&apos;firstScript&apos;为自定义的任务名，匿名函数为&apos;firstScript&apos;具体任务
-gulp.task(&apos;firstScript&apos;, function() {
-    // &apos;script/*.js&apos;是即将压缩的js文件
-    gulp.src(&apos;script/*.js&apos;)
-        //uglify()是调用的压缩方法，去压缩js
-        .pipe(uglify())
-        //gulp.dest是将压缩后的文件另存为哪的方法，如存到newScript文件夹中
-        .pipe(gulp.dest(&apos;newScript&apos;));
-});
-
-
-//压缩css文件
-gulp.task(&apos;firstStyle&apos;, function() {
-    gulp.src(&apos;style/*.css&apos;)
-        .pipe(clean_css())
-        .pipe(gulp.dest(&apos;newStyle&apos;));
-
-});
-
-
-/*
-gulp.task(&apos;auto&apos;, function() {
-//监听js文件，如果文件有改动执行firstscript任务
-    gulp.watch(&apos;script/*.js&apos;, [&apos;firstScript&apos;]);
-});
-*/
-gulp.task(&apos;auto&apos;, function() {
-    gulp.watch(&apos;script/*.js&apos;, function(event) {
-        var paths = watchPath(event, &apos;script&apos;, &apos;newScript&apos;);
-        gulp.src(paths.srcPath)
-            .pipe(uglify())
-            .pipe(rename({ suffix: &apos;.min&apos; }))
-            .pipe(gulp.dest(paths.distDir));
-    });
-});
-// 将需要执行的任务，添加到default任务中，如添加‘auto’任务
-gulp.task(&apos;default&apos;, [&apos;auto&apos;]);
-</code></pre><p><img src="https://static.doooonoooob.com/2016/05/QoS4LcJTTSy6.png" alt=""></p>
-<p>参考文章中使用的<code>gulp-minify-css</code>，我使用的是<code>gulp-clean-css</code>，貌似install <code>gulp-minify-css</code>时候会报一个错，所以…😄hah<br><img src="https://static.doooonoooob.com/2016/05/A4lPKOyubDRt.png" alt=""></p>
-<h3 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h3><p>1.<a href="http://www.cnblogs.com/giggle/p/5389188.html" target="_blank" rel="external">细说gulp</a></p>
-
+        
         
 
     
@@ -408,18 +332,18 @@ only screen and (min-device-pixel-ratio: 1.5) {
 
 
   
-    <article class="postArticle" id="post-docker-dockerfile">
+    <article class="postArticle" id="post-css-vertical-middle">
     
   
     <h1 itemprop="name">
-      <a class="postTitle" href="/post/docker-dockerfile.html">docker</a>
+      <a class="postTitle" href="/post/css-vertical-middle.html">css-vertical-middle</a>
     </h1>
   
 
       <!--<h2 class="postTitle"><a href="#">Welcome to Jekyll!</a></h2>-->
       <div class="postMeta">
-        <time class="postMetaDate" datetime=""><a href="/post/docker-dockerfile.html" class="article-date">
-  <time datetime="2016-04-06T15:38:28.000Z" itemprop="datePublished">2016-04-06</time>
+        <time class="postMetaDate" datetime=""><a href="/post/css-vertical-middle.html" class="article-date">
+  <time datetime="2016-04-20T15:28:01.000Z" itemprop="datePublished">2016-04-20</time>
 </a></time>
         •
         <span class="postMetaTag">on <a href="#"></a></span> •  <span class="postMetaComNum"><a
@@ -428,12 +352,6 @@ only screen and (min-device-pixel-ratio: 1.5) {
       <!--<p class="excerpt">-->
     <div class="entryContent" itemprop="articleBody">
         
-        <p>清明三天放假，在家琢磨了下Docker，做了两个Dockerfile，dockerfile放在了我的<a href="http://github.com/doooonoooob/dockerfile">Github</a>上，以及镜像使用自动构建放在了<a href="http://">Docker hub</a>上。</p>
-<p>现在整理一下Docker内容，涉及到一些Linux内容，但不是本文重点。<br>
-        
-        <p class="article-more-link">
-            <a href="/post/docker-dockerfile.html">继续阅读</a>
-        </p>
         
         
 
@@ -444,18 +362,18 @@ only screen and (min-device-pixel-ratio: 1.5) {
 
 
   
-    <article class="postArticle" id="post-1">
+    <article class="postArticle" id="post-javascript-events">
     
   
     <h1 itemprop="name">
-      <a class="postTitle" href="/post/1.html">讲讲我的ID历史</a>
+      <a class="postTitle" href="/post/javascript-events.html">javascript-events</a>
     </h1>
   
 
       <!--<h2 class="postTitle"><a href="#">Welcome to Jekyll!</a></h2>-->
       <div class="postMeta">
-        <time class="postMetaDate" datetime=""><a href="/post/1.html" class="article-date">
-  <time datetime="2016-04-05T18:23:03.000Z" itemprop="datePublished">2016-04-06</time>
+        <time class="postMetaDate" datetime=""><a href="/post/javascript-events.html" class="article-date">
+  <time datetime="2016-04-20T14:15:23.000Z" itemprop="datePublished">2016-04-20</time>
 </a></time>
         •
         <span class="postMetaTag">on <a href="#"></a></span> •  <span class="postMetaComNum"><a
@@ -464,16 +382,9 @@ only screen and (min-device-pixel-ratio: 1.5) {
       <!--<p class="excerpt">-->
     <div class="entryContent" itemprop="articleBody">
         
-        <p>使用同一个ID不是苦于碍眼，就是经常与人重名,现在貌似找到一个独特的ID，——<strong>doooonoooob</strong></p>
-<p>Google了一下，貌似还是什么都没有</p>
-<p><img src="https://img.lidong.me/2016/04/UDDIVcipUdbk.png" alt=""></p>
-<p>以后搜索出来的东西，那应该都是我的东西。</p>
-<p>到目前为止，虽然混迹在互联网十多年，但在网界还没有形成影响力，网络帐号定有一大堆，但粉丝几乎没有，说起来还有点小悲哀。乘着现在在网界还没有影响力，把ID改改，重新启程 🚗 🚗 🌬☁️</p>
-<p>好吧，讲述一下我的ID历史，混迹十年，ID觉得不只十个<br>有印象的是 05年用<code>lid_2000</code> 注册第一个邮箱，之后还注册过其他各种国内邮箱，以及国外(貌似注册过)，以ID开头的邮箱多半是我，但是我现在我基本不使用了。除了最开始注册的那个邮箱，那个邮箱一直沿用至今，偶尔还去看看，绝壁是个骨灰级用户了。但是这个ID中有个<code>_</code>，以前觉得没啥的，现在觉得很碍眼，而且某些网站ID中不能使用<code>_</code>。</p>
-<p>于是后来使用过<code>lido2000</code>，字母＋数字搭配是挺好，但总觉得使用2000这个数字，有些莫名其妙。<br>最近一两年使用过ID有<code>dongoo</code>、<code>dooonooo</code>，但是经常遇到ID被注册的尴尬情况（可以肯定不是被我注册了）。<br>目前使用的Google 帐号，3年前注册的，ID使用是字母＋数字，当初使用注册帐号时，被推荐个(字母＋数字)的帐号，当时觉得挺好，后来觉得不咋地，其中一条：手机上输入，每次都要切换输入法，累死宝宝了。</p>
-<p>好了暂时整理这么多，泛泛的记录了一些，不能写得太全了，万一哪个利用社会工程学，把我号全给盗走了，就悲剧。（虽然到目前为止没有特别额外价值的东西）</p>
-<p>看完上一段，估计也就明白，<strong>doooonoooob</strong>的由来，</p>
-<p>dooonooo ——&gt; dooonooob ——&gt; doooonoooob<br>ID经常被注册，加个b还是对称的哟，六个o的twitter帐号已经被注册了，干脆再加两个</p>
+        <p>事件流</p>
+<p>事件冒泡：最具体的元素传递到最不具体的元素<br>事件捕获：最不具体的元素传递到最具体的元素</p>
+<p>事件处理</p>
 
         
 
@@ -484,6 +395,149 @@ only screen and (min-device-pixel-ratio: 1.5) {
 
 
   
+    <article class="postArticle" id="post-ssh-login-settings">
+    
+  
+    <h1 itemprop="name">
+      <a class="postTitle" href="/post/ssh-login-settings.html">ssh-login-settings</a>
+    </h1>
+  
+
+      <!--<h2 class="postTitle"><a href="#">Welcome to Jekyll!</a></h2>-->
+      <div class="postMeta">
+        <time class="postMetaDate" datetime=""><a href="/post/ssh-login-settings.html" class="article-date">
+  <time datetime="2016-04-19T13:45:06.000Z" itemprop="datePublished">2016-04-19</time>
+</a></time>
+        •
+        <span class="postMetaTag">on <a href="#"></a></span> •  <span class="postMetaComNum"><a
+                  href="#comment">0条评论</a></span>
+      </div>
+      <!--<p class="excerpt">-->
+    <div class="entryContent" itemprop="articleBody">
+        
+        <p>在本机生成公钥私钥对</p>
+<pre><code>ssh-keygen - t rsa -P &apos;&apos;
+</code></pre><p>-P表示密码，-P ‘’ 表示空密码，也可以不使用此参数</p>
+<p>1.将生成的公钥id_rsa.pub，复制到远程主机，保存在<code>~/.ssh/authorized_keys</code>文件中</p>
+<p>scp ~/.ssh/id_rsa.pub user@192.168.1.100:~/.ssh/authorized_keys<br>修改权限<br><code>chmod 600 .ssh/authorized_keys</code><br>⚠️ authorized_keys 的权限必须为600，否则ssh登陆无法生效</p>
+
+        
+
+    
+    </div>
+    <hr class="postListDivider">
+</article>
+
+
+  
+    <article class="postArticle" id="post-rem-font-size">
+    
+  
+    <h1 itemprop="name">
+      <a class="postTitle" href="/post/rem-font-size.html">rem-font-size</a>
+    </h1>
+  
+
+      <!--<h2 class="postTitle"><a href="#">Welcome to Jekyll!</a></h2>-->
+      <div class="postMeta">
+        <time class="postMetaDate" datetime=""><a href="/post/rem-font-size.html" class="article-date">
+  <time datetime="2016-04-17T16:51:40.000Z" itemprop="datePublished">2016-04-18</time>
+</a></time>
+        •
+        <span class="postMetaTag">on <a href="#"></a></span> •  <span class="postMetaComNum"><a
+                  href="#comment">0条评论</a></span>
+      </div>
+      <!--<p class="excerpt">-->
+    <div class="entryContent" itemprop="articleBody">
+        
+        <pre><code>html {
+    font-size: 62.5%; /* 10÷16=62.5% */
+    }
+body {
+    font-size: 12px;
+    font-size: 1.2rem; /* 12÷10=1.2 */
+    }
+p {
+    font-size: 14px;
+    font-size: 1.4rem;
+    }
+</code></pre>
+        
+
+    
+    </div>
+    <hr class="postListDivider">
+</article>
+
+
+  
+    <article class="postArticle" id="post-css-box-model">
+    
+  
+    <h1 itemprop="name">
+      <a class="postTitle" href="/post/css-box-model.html">css-box-model</a>
+    </h1>
+  
+
+      <!--<h2 class="postTitle"><a href="#">Welcome to Jekyll!</a></h2>-->
+      <div class="postMeta">
+        <time class="postMetaDate" datetime=""><a href="/post/css-box-model.html" class="article-date">
+  <time datetime="2016-04-15T18:03:52.000Z" itemprop="datePublished">2016-04-16</time>
+</a></time>
+        •
+        <span class="postMetaTag">on <a href="#"></a></span> •  <span class="postMetaComNum"><a
+                  href="#comment">0条评论</a></span>
+      </div>
+      <!--<p class="excerpt">-->
+    <div class="entryContent" itemprop="articleBody">
+        
+        
+        
+
+    
+    </div>
+    <hr class="postListDivider">
+</article>
+
+
+  
+    <article class="postArticle" id="post-ie678-css">
+    
+  
+    <h1 itemprop="name">
+      <a class="postTitle" href="/post/ie678-css.html">ie678-css</a>
+    </h1>
+  
+
+      <!--<h2 class="postTitle"><a href="#">Welcome to Jekyll!</a></h2>-->
+      <div class="postMeta">
+        <time class="postMetaDate" datetime=""><a href="/post/ie678-css.html" class="article-date">
+  <time datetime="2016-04-15T17:46:57.000Z" itemprop="datePublished">2016-04-16</time>
+</a></time>
+        •
+        <span class="postMetaTag">on <a href="#"></a></span> •  <span class="postMetaComNum"><a
+                  href="#comment">0条评论</a></span>
+      </div>
+      <!--<p class="excerpt">-->
+    <div class="entryContent" itemprop="articleBody">
+        
+        <p> 使IE 8以及更早版本支持媒体查询。</p>
+<pre><code>https://github.com/scottjehl/Respond
+https://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js
+</code></pre>
+        
+
+    
+    </div>
+    <hr class="postListDivider">
+</article>
+
+
+  
+  
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/">&laquo; Prev</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/">Next &raquo;</a>
+    </nav>
   
 
 
@@ -508,4 +562,3 @@ only screen and (min-device-pixel-ratio: 1.5) {
 </div>
 </body>
 </html>
->>>>>>> 6ced05bdcea170618b44f5eae76df2af32998836

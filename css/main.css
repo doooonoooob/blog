@@ -1,0 +1,337 @@
+/* globel.css*/
+/* 清除标记的外边距和内边距 */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+th,
+td,
+p,
+blockquote,
+pre,
+form,
+fieldset,
+legend,
+input,
+button,
+textarea,
+hr,
+div {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* 全局的颜色字体设置 */
+body,
+button,
+input,
+select,
+textarea {
+  font: 14px/1.5 "Microsoft Yahei", arial, verdana, sans-serif;
+}
+/* 标题设置 */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+  font-weight: normal;
+  color: #333333;
+}
+h1 {
+  font-size: 2em;
+}
+h3 {
+  font-size: 1.3em;
+}
+h4 {
+  font-size: 1.1em;
+}
+/* 项目符号 */
+ul,
+ol,
+li {
+  list-style: none;
+}
+fieldset,
+img {
+  border: 0;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+button,
+input,
+select,
+textarea {
+  font-size: 100%;
+}
+small {
+  font-size: 12px;
+}
+hr {
+  border: none;
+  height: 1px;
+}
+/* 链接设置 */
+a {
+  color: #e25440;
+  text-decoration: none;
+}
+/* 颜色设置 */
+.red {
+  color: #ff0000;
+}
+.blue {
+  color: #0000ff;
+}
+.green {
+  color: #00ff00;
+}
+/*清除浮动*/
+.clearfix:after {
+  content: '\0020';
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.clearfix {
+  *zoom: 1;
+}
+/*浮动*/
+.floatRight {
+  float: right;
+}
+.float-right {
+  float: right;
+}
+.float-left {
+  float: left;
+}
+.floatLeft {
+  float: left;
+}
+.center {
+  text-align: center;
+}
+.hide {
+  display: none;
+}
+/*文本超出隐藏，显示省略号*/
+.text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+html,
+body {
+  height: 100%;
+}
+.panel {
+  z-index: 1000;
+  background: url(https://static.doooonoooob.com/2016/04/cqYZHXyavAx2.jpg) center no-repeat #666666;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+}
+.panelCollapse {
+  width: 40%;
+  max-width: 530px;
+  border: solid 1px;
+}
+.panelMain {
+  height: 100%;
+  width: 100%;
+  display: table;
+  vertical-align: middle;
+  text-align: center;
+}
+.panelMainInner {
+  display: table-cell;
+  margin: 0 auto;
+  text-align: center;
+  vertical-align: middle;
+}
+.panelMainInner a {
+  color: #fff;
+  opacity: 0.8;
+}
+.panelMainInner a:hover {
+  text-decoration: none;
+  opacity: 1;
+}
+.userImg {
+  width: 100px;
+  height: 100px;
+}
+.panelTitle {
+  color: #fff;
+  text-align: center;
+}
+.panelTitle h1 {
+  font-size: 2em;
+}
+.panelTitle p {
+  font-size: 20px;
+}
+.panelTitle .panelDivider {
+  width: 50%;
+  margin: 20px auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+.panelTitle .panelDivider2 {
+  width: 30%;
+}
+.panelNavigation {
+  margin: 0 auto;
+  text-align: center;
+}
+.panelNavigation a {
+  margin: 5px;
+  padding: 10px;
+  border: solid 1px #fff;
+  font-size: 24px;
+  border-radius: 36px;
+}
+.panelNavigation a i {
+  width: 24px;
+}
+nav {
+  display: inline-block;
+}
+nav li {
+  float: left;
+}
+nav .label {
+  display: none;
+}
+.contentWrapper {
+  z-index: 800;
+  margin-left: 40%;
+  width: 60%;
+}
+.contentWrapperInner {
+  margin: 0 5%;
+  padding-top: 30px;
+}
+.postList li {
+  margin: 0 0 2.2em 0;
+}
+.postList .postListDivider {
+  width: 30%;
+  margin: 2.2em 0 2.1em 0;
+  border-top: 1px solid #dddddd;
+}
+.postList p {
+  margin-top: 15px;
+}
+.postTitle {
+  font-size: 1.5em;
+  line-height: 1.3em;
+  margin-bottom: .2em;
+}
+.postTitle a {
+  color: #333333;
+}
+.postMeta {
+  margin: .7em 0;
+  color: #c7c7c7;
+}
+.entryContent {
+  font-size: 1.2em;
+  line-height: 1.7em;
+  color: #999999;
+}
+.pageNav {
+  width: 100%;
+  padding: 20px 0;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+.pageNav .prev {
+  float: left;
+}
+.pageNav .next {
+  float: right;
+}
+#footer {
+  display: block;
+  padding: 1em 0 1em 1em;
+  font-size: .7em;
+  color: #b3b3b3;
+  text-align: center;
+}
+article blockquote {
+  background-color: #f8f8f8;
+  border-left: 5px solid #2479CC;
+  margin-top: 10px;
+  overflow: hidden;
+  padding: 15px 20px;
+}
+article code {
+  background-color: #f2f2f2;
+  border-radius: 5px;
+  font-family: "Consolas", "Courier New", Courier, mono, serif;
+  font-size: 80%;
+  margin: 0 2px;
+  padding: 4px 5px;
+  vertical-align: middle;
+}
+article pre {
+  background-color: #f8f8f8;
+  border-left: 5px solid #ccc;
+  /* color: #5d6a6a; */
+  font-family: "Consolas", "Liberation Mono", Courier, monospace;
+  font-size: 14px;
+  line-height: 1.6;
+  overflow: hidden;
+  padding: 0.6em;
+  position: relative;
+  white-space: pre-wrap;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+article pre code {
+  background-color: transparent;
+  border-radius: 0 0 0 0;
+  border: 0;
+  display: block;
+  font-size: 100%;
+  margin: 0;
+  padding: 0;
+}
+article .entryContent p,
+article .entryContent blockquote,
+article .entryContent ul,
+article .entryContent ol,
+article .entryContent dl,
+article .entryContent table,
+article .entryContent iframe,
+article .entryContent h1,
+article .entryContent h2,
+article .entryContent h3,
+article .entryContent h4,
+article .entryContent h5,
+article .entryContent h6,
+article .entryContent p,
+article .entryContent pre {
+  margin-top: 15px;
+}
+article img {
+  max-width: 100%;
+}
+/*# sourceMappingURL=main.css.map */
